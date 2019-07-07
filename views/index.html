@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Galau yuk :( Tempat kamu curhat, sedih, kacau, menyampaikan kegalauan!</title>
+    <meta name="description" content="Curhat, marah, kacau, sedih, lampiaskan disini. jangan di sosial media">
+    <link id="favicon" rel="icon" href="https://cdn.glitch.com/f86ce181-fdee-4828-8367-d471eb712227%2Ffavicon.ico?1538036640731" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta property="og:site_name" content="Galau yuk :( Tempat kamu curhat, sedih, kacau, menyampaikan kegalauan!" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://cdn.glitch.com/f86ce181-fdee-4828-8367-d471eb712227/galau.glitch.me.png" />
+    <meta property="og:locale:alternate" content="id_ID" />
+    <meta property="og:url" content="https://galau.glitch.me" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@andirkh" />
+    <meta name="twitter:title" content="Galau yuk :( Tempat kamu curhat, sedih, kacau, menyampaikan kegalauan!" />
+    <meta name="twitter:description" content="Curhat, marah, kacau, sedih, lampiaskan disini. jangan di sosial media" />
+    <meta name="twitter:url" content="https://galau.glitch.me" />
+    <meta name="twitter:image" content="https://cdn.glitch.com/f86ce181-fdee-4828-8367-d471eb712227%2Fgalau.glitch.me.png" />
+    
+    <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif;
+      margin: 2em;
+    }
+
+    h1, h3 {
+      font-style: italic;
+      color: #373fff;
+    }
+
+    .bold {
+      font-weight: bold;
+    }
+
+    p {
+      max-width: 600px;
+    }
+
+    form {
+      margin-bottom: 25px;
+      padding: 15px;
+      background-color: cyan;
+      display: inline-block;
+      width: 100%;
+      max-width: 340px;
+      border-radius: 3px;
+    }
+
+    input {
+      display: block;
+      margin-bottom: 10px;
+      padding: 5px;
+      width: 100%;
+      border: 1px solid lightgrey;
+      border-radius: 3px;
+      font-size: 16px;
+    }
+
+    button {
+      font-size: 35px;
+      border-radius: 3px;
+      background-color: lightgrey;
+      border: 1px solid grey;
+      box-shadow: 2px 2px teal;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 20px;
+      margin-bottom: 35px;
+      padding: 35px;
+    }
+
+    button:hover {
+      background-color: yellow;
+    }
+
+    button:active {
+      box-shadow: none;
+    }
+
+    li {
+      margin-bottom: 5px;
+    }
+      
+    img {
+      width: 100%;  
+    }
+
+    footer {
+      margin-top: 50px;
+      padding-top: 25px;
+      border-top: 1px solid lightgrey;
+    }
+
+    .content-page {
+      margin-bottom: 100px;
+      padding: 20px;
+      border-radius: 10px;
+      border: 3px solid lightgrey;
+    }
+
+    .input-title {
+    /*   font-size: 18px; */
+      padding: 15px;
+      border: 3px solid lightgrey;
+      border-radius: 5px;
+    }
+
+    .input-body {
+      width: 100%;
+      padding: 15px;
+    /*   font-size: 18px; */
+      border: 3px solid lightgrey;
+      border-radius: 5px;
+      height: 300px;
+      resize: none;
+    }
+
+    .delete {
+      width: 50px;
+      float: right;
+      font-size: 10px;
+      padding: 5px;
+    }
+    </style>
+    
+  </head>
+  <body>
+    <header>
+      <h1>
+        Galau Disini :(
+      </h1>
+    </header>
+    <p>
+      Galaumu tentang apa nich :
+    </p>
+    <input class="input-title" type="text" placeholder="cinta, mantan, keuangan, teman, kesehatan, orang-tua, kerjaan, pacar, kuliah, negara">
+    <p>
+      Ceritakan Galaumu :
+    </p>    
+    <textarea class="input-body" type="text" placeholder="Menulis masalahmu disini lebih aman daripada menulisnya di media sosial. Tulis sepuasnya masalahmu disini, menulis jauh lebih murah untuk kesehatan mental kalian. Tidak ada yg tau siapa yg menulis disini, anonymous semua. Jd puas-puasin ya ;)"></textarea>
+    <button onclick="gobutton()">
+      sampaikan
+    </button>
+    
+    <br /><br /><br /><br />
+    <h1>
+      Di bawah ini galaunya rang-orang :(
+    </h1>
+    <br />
+    <div class="content"></div>
+    
+    <img src="https://cdn.gomix.com/us-east-1%3Acba180f4-ee65-4dfc-8dd5-f143280d3c10%2Fcat.svg" style="width:92px"/>
+    <p>
+      keep calm buddy :)
+    </p>
+    <p>
+      built with <a href="https://nodejs.org/en/" target="_blank">nodejs</a> + <a href="https://www.sqlite.org/index.html" target="_blank">sqlite3</a>. 
+    </p>
+    <p>
+      from @andirkh, @glitch with ❤️
+    </p>
+    <p style="font-size: 8px">
+      (mbelgedes, iki ngono aku sinau SQLite kok rek wqwq)
+    </p>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.js"
+      integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+      crossorigin="anonymous"></script>
+    <script>
+      const API = 'https://galau.glitch.me';
+      
+      var init = function(){
+        fetch( API + '/post', {
+          method: 'GET',
+          headers: {
+            "Content-Type": "application/json"
+          }
+        }).then((response) => response.json())
+        .then((data) => {
+          var terbalik = data.post.reverse(); 
+          terbalik.map((object, i) => {
+            let nomor = (i + 1) + ". "; 
+            let string = '<div class="content-page"><h3>' + object.title + '</h3>' + '<div>' + object.body + '<button class="delete" onclick="deletePost(`'+object.id+'`)">delete</button>' + '</div></div>';
+            $('.content').append(string);
+          })
+        })
+        .catch(error => console.error(`Fetch Error =\n`, error));
+      }
+        
+      var gobutton = function(){
+        var title = $('.input-title').val();
+        var body = $('.input-body').val();
+          
+        var packet = {
+          title: title,
+          body: body
+        }
+        
+        if(title.length === 0){
+          alert('judul diisi dong')
+          return
+        }
+        
+        if(body.length === 0){
+          alert('kamu jadi galau nggak si')
+          return
+        }
+        
+        fetch(API + '/post', {
+          method: 'POST',
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(packet)
+        }).then((response) => response.json())
+        .then((data) => {
+          console.log('data', data)
+          alert('success');
+          $('.content').empty();
+          init();
+          $('.input-title').val('');
+          $('.input-body').val('');
+        })
+        .catch(error => console.error(`Fetch Error =\n`, error));
+        
+      }
+      
+      var deletePost = function(postid){
+        fetch( API + '/post/delete/' + postid, {
+          method: 'DELETE',
+          headers: {
+            "Content-Type": "application/json"
+          }
+        }).then((response) => response.json())
+        .then((data) => {
+          //console.log('data', data)
+          alert('delete success');
+          $('.content').empty();
+          init();
+        })
+        .catch(error => console.error(`Fetch Error =\n`, error));
+        
+      }
+
+      init();
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-61952975-10"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-61952975-10');
+    </script>
+
+  </body>
+</html>

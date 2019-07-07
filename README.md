@@ -1,3 +1,1 @@
-# galau
-
-branch : glitch
+\ ゜o゜)ノ GALAAAWWWW
