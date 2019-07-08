@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
     <meta property="og:site_name" content="Galau yuk :( Tempat kamu curhat, sedih, kacau, menyampaikan kegalauan!" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://cdn.glitch.com/f86ce181-fdee-4828-8367-d471eb712227/galau.glitch.me.png" />
@@ -20,7 +20,7 @@
     <meta name="twitter:description" content="Curhat, marah, kacau, sedih, lampiaskan disini. jangan di sosial media" />
     <meta name="twitter:url" content="https://galau.glitch.me" />
     <meta name="twitter:image" content="https://cdn.glitch.com/f86ce181-fdee-4828-8367-d471eb712227%2Fgalau.glitch.me.png" />
-    
+
     <style>
     * {
       box-sizing: border-box;
@@ -88,9 +88,9 @@
     li {
       margin-bottom: 5px;
     }
-      
+
     img {
-      width: 100%;  
+      width: 100%;
     }
 
     footer {
@@ -130,7 +130,7 @@
       padding: 5px;
     }
     </style>
-    
+
   </head>
   <body>
     <header>
@@ -144,25 +144,25 @@
     <input class="input-title" type="text" placeholder="cinta, mantan, keuangan, teman, kesehatan, orang-tua, kerjaan, pacar, kuliah, negara">
     <p>
       Ceritakan Galaumu :
-    </p>    
+    </p>
     <textarea class="input-body" type="text" placeholder="Menulis masalahmu disini lebih aman daripada menulisnya di media sosial. Tulis sepuasnya masalahmu disini, menulis jauh lebih murah untuk kesehatan mental kalian. Tidak ada yg tau siapa yg menulis disini, anonymous semua. Jd puas-puasin ya ;)"></textarea>
     <button onclick="gobutton()">
       sampaikan
     </button>
-    
+
     <br /><br /><br /><br />
     <h1>
       Di bawah ini galaunya rang-orang :(
     </h1>
     <br />
     <div class="content"></div>
-    
+
     <img src="https://cdn.gomix.com/us-east-1%3Acba180f4-ee65-4dfc-8dd5-f143280d3c10%2Fcat.svg" style="width:92px"/>
     <p>
       keep calm buddy :)
     </p>
     <p>
-      built with <a href="https://nodejs.org/en/" target="_blank">nodejs</a> + <a href="https://www.sqlite.org/index.html" target="_blank">sqlite3</a>. 
+      built with <a href="https://nodejs.org/en/" target="_blank">nodejs</a> + <a href="https://www.sqlite.org/index.html" target="_blank">sqlite3</a>.
     </p>
     <p>
       from @andirkh, @glitch with ❤️
@@ -175,8 +175,8 @@
       integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
       crossorigin="anonymous"></script>
     <script>
-      const API = 'https://galau.glitch.me';
-      
+      const API = 'http://localhost:3000';
+
       var init = function(){
         fetch( API + '/post', {
           method: 'GET',
@@ -185,35 +185,35 @@
           }
         }).then((response) => response.json())
         .then((data) => {
-          var terbalik = data.post.reverse(); 
+          var terbalik = data.post.reverse();
           terbalik.map((object, i) => {
-            let nomor = (i + 1) + ". "; 
+            let nomor = (i + 1) + ". ";
             let string = '<div class="content-page"><h3>' + object.title + '</h3>' + '<div>' + object.body + '<button class="delete" onclick="deletePost(`'+object.id+'`)">delete</button>' + '</div></div>';
             $('.content').append(string);
           })
         })
         .catch(error => console.error(`Fetch Error =\n`, error));
       }
-        
+
       var gobutton = function(){
         var title = $('.input-title').val();
         var body = $('.input-body').val();
-          
+
         var packet = {
           title: title,
           body: body
         }
-        
+
         if(title.length === 0){
           alert('judul diisi dong')
           return
         }
-        
+
         if(body.length === 0){
           alert('kamu jadi galau nggak si')
           return
         }
-        
+
         fetch(API + '/post', {
           method: 'POST',
           headers: {
@@ -230,9 +230,9 @@
           $('.input-body').val('');
         })
         .catch(error => console.error(`Fetch Error =\n`, error));
-        
+
       }
-      
+
       var deletePost = function(postid){
         fetch( API + '/post/delete/' + postid, {
           method: 'DELETE',
@@ -247,7 +247,7 @@
           init();
         })
         .catch(error => console.error(`Fetch Error =\n`, error));
-        
+
       }
 
       init();
