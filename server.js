@@ -12,7 +12,7 @@ app.use(express.static('public'));
 
 // SQLITE :
 var fs = require('fs');
-var dbFile = './.data/andirkh.db';
+var dbFile = './data/database.db';
 var exists = fs.existsSync(dbFile);
 var sqlite3 = require('sqlite3').verbose();
 var db = new sqlite3.Database(dbFile);
@@ -59,7 +59,7 @@ app.post('/post', function(request, response){
   var title = request.body.title;
   var body = request.body.body;
   var id = uuidv1();
-  
+
   db.run('INSERT INTO NEWS VALUES ($id, $title, $body)', {
     $id: id,
     $title: title,
@@ -101,7 +101,7 @@ app.get('/post/:postid', function(request, response){
 // UPDATE SINGLE POST
 app.post('/post/edit/:postid', function(request, response) {
   var postid = request.params.postid;
-  
+
   db.run('UPDATE News SET title = $title, body = $body where id = $id', {
     $title: request.body.title,
     $body: request.body.body,
@@ -117,7 +117,7 @@ app.post('/post/edit/:postid', function(request, response) {
 // DELETE POST
 app.delete('/post/delete/:postid', function(request, response){
   var postid = request.params.postid;
-  
+
   db.run('DELETE FROM News Where id = $id', {
     $id: postid
   }, function(error){
@@ -127,10 +127,10 @@ app.delete('/post/delete/:postid', function(request, response){
       response.send({ "msg": "Success" })
     }
   })
-  
+
 })
 
 // KICK START :
-var listener = app.listen(process.env.PORT, function() {
+var listener = app.listen(3000, function() {
   console.log('Your app is listening on port ' + listener.address().port);
 });
